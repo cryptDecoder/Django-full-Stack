@@ -15,5 +15,7 @@ def home_page(request):
 
 def lead_detail(request, pk):
     lead = Lead.objects.get(id=pk)
-    print(lead)
-    return HttpResponse("Here is detailed view")
+    context = {
+        "lead": lead
+    }
+    return render(request, "leads/lead_detail.html", context)
