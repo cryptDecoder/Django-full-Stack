@@ -30,11 +30,14 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
+    <a href="/leads/create/">Create new Lead</a>
+    <hr />
     <h1>This is all about our leads</h1>
     {% for lead in leads %}
-      <div class="lead">
-        <a href="/leads/{{ lead.pk }}">{{lead.first_name}} {{lead.last_name}}</a> {{lead.age}}
-      </div>
+    <div class="lead">
+      <a href="/leads/{{ lead.pk }}">{{lead.first_name}} {{lead.last_name}}</a>
+      {{lead.age}}
+    </div>
     {% endfor %}
 
     <script src="" async defer></script>
