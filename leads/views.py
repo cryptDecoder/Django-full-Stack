@@ -5,13 +5,17 @@ from .forms import LeadForm, LeadModelForm
 # Create your views here.
 
 
-def home_page(request):
+def home(request):
+    return render(request, 'landing.html')
+
+
+def lead_list(request):
     leads = Lead.objects.all()
 
     context = {
         "leads": leads
     }
-    return render(request, "leads/home_page.html", context)
+    return render(request, "leads/lead_list.html", context)
 
 
 def lead_detail(request, pk):

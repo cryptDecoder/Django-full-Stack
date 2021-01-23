@@ -7,21 +7,14 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Home Page</title>
+    <title>DjCRM</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="" />
-    <style>
-      .lead {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 6px;
-        padding-right: 10px;
-        padding-top: 10px;
-        background-color: #f6f6f6;
-        width: 100%;
-      }
-    </style>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -30,16 +23,9 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-    <a href="/leads/create/">Create new Lead</a>
-    <hr />
-    <h1>This is all about our leads</h1>
-    {% for lead in leads %}
-    <div class="lead">
-      <a href="/leads/{{ lead.pk }}">{{lead.first_name}} {{lead.last_name}}</a>
-      {{lead.age}}
+    {% include 'navbar.html' %}
+    <div class="max-w-7xl mx-auto">
+      {% block content %}{% endblock content %}
     </div>
-    {% endfor %}
-
-    <script src="" async defer></script>
   </body>
 </html>
