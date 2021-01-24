@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'leads.apps.LeadsConfig'
+    'leads.apps.LeadsConfig',
+    'agents.apps.AgentsConfig',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,6 @@ STATICFILES_DIRS = (BASE_DIR / "static",)
 STATIC_ROOT = "static_root"
 AUTH_USER_MODEL = 'leads.User'
 LOGIN_REDIRECT_URL = '/leads'
+LOGIN_URL = '/login'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = 'tailwind'
