@@ -1,12 +1,24 @@
+from typing import Generic
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Agent, Lead
-from .forms import LeadForm, LeadModelForm
+from .forms import LeadForm, LeadModelForm, CustomUserCreationForm
+from django.views import generic
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 
 def home(request):
     return render(request, 'landing.html')
+
+
+class SignupView(generic.CreateView):
+    template_name = "registration/signup.html"
+    form_class = CustomUserCreationForm
+
+    def get_success_url(self):
+        return reversed("login")
+    pass
 
 
 def lead_list(request):
